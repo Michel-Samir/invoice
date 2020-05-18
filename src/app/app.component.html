@@ -1,0 +1,558 @@
+<div class="container">
+  <h1>INVOICE</h1>
+  <form (ngSubmit)="createInvoice()" [formGroup]="invoiceForm">
+    <!--             Form First Section              -->
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group form-inline">
+          <label for="CompanyName" class="col-sm-4">Company Name:</label>
+          <input
+            type="text"
+            class="form-control col-sm-6"
+            formControlName="CompanyName"
+            id="CompanyName"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('CompanyName').valid &&
+                invoiceForm.get('CompanyName').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="CompanyAddress" class="col-sm-4">Address:</label>
+          <input
+            type="text"
+            class="form-control col-sm-6"
+            formControlName="CompanyAddress"
+            id="CompanyAddress"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('CompanyAddress').valid &&
+                invoiceForm.get('CompanyAddress').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="StateZipCode" class="col-sm-4"
+            >City, State Zip Code:</label
+          >
+          <input
+            type="number"
+            class="form-control col-sm-6"
+            formControlName="StateZipCode"
+            id="StateZipCode"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('StateZipCode').valid &&
+                invoiceForm.get('StateZipCode').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="form-group form-inline">
+          <label for="Date" class="col-sm-4 offset-sm-2">DATE:</label>
+          <input
+            type="date"
+            class="form-control col-sm-6"
+            formControlName="Date"
+            id="Date"
+          />
+          <div class="offset-sm-6">
+            <span
+              *ngIf="
+                !invoiceForm.get('Date').valid &&
+                invoiceForm.get('Date').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="ReceiptNO" class="col-sm-4 offset-sm-2"
+            >RECEIPT NO:</label
+          >
+          <input
+            type="number"
+            class="form-control col-sm-6"
+            formControlName="ReceiptNO"
+            id="ReceiptNO"
+          />
+          <div class="offset-sm-6">
+            <span
+              *ngIf="
+                !invoiceForm.get('ReceiptNO').valid &&
+                invoiceForm.get('ReceiptNO').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--          Form Second Section              -->
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h3>BILL TO:</h3>
+        <div class="form-group form-inline">
+          <label for="BillContactName" class="col-sm-4">CONTACT NAME:</label>
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="BillContactName"
+            id="BillContactName"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('BillContactName').valid &&
+                invoiceForm.get('BillContactName').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="BillClientCompanyName" class="col-sm-4"
+            >CLIENT COMPANY NAME:</label
+          >
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="BillClientCompanyName"
+            id="BillClientCompanyName"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('BillClientCompanyName').valid &&
+                invoiceForm.get('BillClientCompanyName').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="BillAddress" class="col-sm-4">ADDRESS:</label>
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="BillAddress"
+            id="BillAddress"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('BillAddress').valid &&
+                invoiceForm.get('BillAddress').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="BillPhone" class="col-sm-4">PHONE:</label>
+          <input
+            type="number"
+            class="form-control col-sm-8"
+            formControlName="BillPhone"
+            id="BillPhone"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('BillPhone').valid &&
+                invoiceForm.get('BillPhone').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="BillEmail" class="col-sm-4">EMAIL: </label>
+          <input
+            type="email"
+            class="form-control col-sm-8"
+            formControlName="BillEmail"
+            id="BillEmail"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('BillEmail').valid &&
+                invoiceForm.get('BillEmail').touched &&
+                invoiceForm.get('BillEmail').errors.required
+              "
+            >
+              This field is required
+            </span>
+            <span
+              *ngIf="
+                !invoiceForm.get('BillEmail').valid &&
+                invoiceForm.get('BillEmail').touched &&
+                invoiceForm.get('BillEmail').errors.email
+              "
+            >
+              Please enter valid Email
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <h3>SHIP TO:</h3>
+        <div class="form-group form-inline">
+          <label for="ShipName" class="col-sm-4">NAME/DEPT:</label>
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="ShipName"
+            id="ShipName"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('ShipName').valid &&
+                invoiceForm.get('ShipName').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="ShipClientCompanyName" class="col-sm-4"
+            >CLIENT COMPANY NAME:</label
+          >
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="ShipClientCompanyName"
+            id="ShipClientCompanyName"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('ShipClientCompanyName').valid &&
+                invoiceForm.get('ShipClientCompanyName').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="ShipAddress" class="col-sm-4">ADDRESS:</label>
+          <input
+            type="text"
+            class="form-control col-sm-8"
+            formControlName="ShipAddress"
+            id="ShipAddress"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('ShipAddress').valid &&
+                invoiceForm.get('ShipAddress').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="ShipPhone" class="col-sm-4">PHONE:</label>
+          <input
+            type="number"
+            class="form-control col-sm-8"
+            formControlName="ShipPhone"
+            id="ShipPhone"
+          />
+          <div class="offset-sm-4">
+            <span
+              *ngIf="
+                !invoiceForm.get('ShipPhone').valid &&
+                invoiceForm.get('ShipPhone').touched
+              "
+            >
+              This field is required
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--               Form Items Table             -->
+    <div formArrayName="Items">
+      <button
+        class="btn btn-primary mt-3 mb-3"
+        type="button"
+        (click)="addNewItem()"
+      >
+        Add Items
+      </button>
+      <div class="table-responsive-sm mb-4">
+        <table class="table table-bordered table-sm table-hover">
+          <thead class="thead-primary">
+            <tr>
+              <th>DESCRIPTION</th>
+              <th>QTY</th>
+              <th>UNIT PRICE</th>
+              <th>TOTAL</th>
+              <th>DELETE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let item of invoiceForm.get('Items')['controls'];
+                let i = index
+              "
+              [formGroupName]="i"
+            >
+              <th>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Description"
+                  placeholder="Item Description"
+                />
+                <div>
+                  <span
+                    *ngIf="
+                      !item.get('Description').valid &&
+                      item.get('Description').touched
+                    "
+                  >
+                    Required
+                  </span>
+                </div>
+              </th>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="Quantity"
+                  placeholder="Item Quantity"
+                />
+                <div>
+                  <span
+                    *ngIf="
+                      !item.get('Quantity').valid &&
+                      item.get('Quantity').touched
+                    "
+                  >
+                    Required
+                  </span>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="form-control"
+                  formControlName="UnitPrice"
+                  placeholder="Item Price"
+                />
+                <div>
+                  <span
+                    *ngIf="
+                      !item.get('UnitPrice').valid &&
+                      item.get('UnitPrice').touched
+                    "
+                  >
+                    Required
+                  </span>
+                </div>
+              </td>
+              <td>
+                {{ item.get("Quantity").value * item.get("UnitPrice").value }}
+              </td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="onDeleteItem(i)"
+                >
+                  Close
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--              Form Last Section               -->
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h5>REMARKS/NOTES:</h5>
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            formControlName="Remarks"
+            id="Remarks"
+            rows="11"
+            placeholder="Notes & comments go in here..."
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 input-bottom-border">
+        <div class="form-group form-inline">
+          <label for="subtotal" class="col-sm-7 offset-sm-3">SUBTOTAL:</label>
+          <input
+            type="text"
+            class="form-control col-sm-2"
+            name="subtotal"
+            id="subtotal"
+            disabled
+            value="{{ calculateTotal() }}"
+          />
+        </div>
+        <div class="form-group form-inline">
+          <label for="Discount" class="col-sm-7 offset-sm-3">DISCOUNT:</label>
+          <input
+            type="number"
+            class="form-control col-sm-2"
+            formControlName="Discount"
+            id="Discount"
+          />
+          <div class="offset-sm-10">
+            <span
+              *ngIf="
+                !invoiceForm.get('Discount').valid &&
+                invoiceForm.get('Discount').touched
+              "
+            >
+              Required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="subtotalAfterDiscount" class="col-sm-7 offset-sm-3"
+            >SUBTOTAL LESS DISCOUNT:</label
+          >
+          <input
+            type="text"
+            class="form-control col-sm-2"
+            disabled
+            value="{{ calculateTotalAfterDiscount() }}"
+          />
+        </div>
+        <div class="form-group form-inline">
+          <label for="TaxRate" class="col-sm-7 offset-sm-3">TAX RATE - Percentage:</label>
+          <input
+            type="number"
+            class="form-control col-sm-2"
+            formControlName="TaxRate"
+            id="TaxRate"
+          />
+          <div class="offset-sm-10">
+            <span
+              *ngIf="
+                !invoiceForm.get('TaxRate').valid &&
+                invoiceForm.get('TaxRate').touched
+              "
+            >
+              Required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline">
+          <label for="totalTax" class="col-sm-7 offset-sm-3">TOTAL TAX:</label>
+          <input
+            type="text"
+            class="form-control col-sm-2"
+            name="totalTax"
+            id="totalTax"
+            value="{{ calculateTotalTax() }}"
+            disabled
+          />
+        </div>
+        <div class="form-group form-inline">
+          <label for="Shipping" class="col-sm-7 offset-sm-3"
+            >SHIPPING/HANDLING:</label
+          >
+          <input
+            type="number"
+            class="form-control col-sm-2"
+            formControlName="Shipping"
+            id="Shipping"
+          />
+          <div class="offset-sm-10">
+            <span
+              *ngIf="
+                !invoiceForm.get('Shipping').valid &&
+                invoiceForm.get('Shipping').touched
+              "
+            >
+              Required
+            </span>
+          </div>
+        </div>
+        <div class="form-group form-inline mt-4">
+          <label for="balancePaid" class="col-sm-7 offset-sm-3"
+            >BALANCE PAID:</label
+          >
+          <input
+            type="text"
+            class="form-control col-sm-2"
+            name="balancePaid"
+            id="balancePaid"
+            disabled
+            value="{{ calculateTotalShipping() }}"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Buttons -->
+      <div class="col-sm-12 col-md-4">
+        <button
+          class="btn btn-danger btn-block"
+          type="button"
+          (click)="ResetInputs()"
+        >
+          Reset
+        </button>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <button
+          class="btn btn-primary btn-block"
+          type="submit"
+          [disabled]="!invoiceForm.valid"
+        >
+          Submit (Export Values)
+        </button>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <button
+          type="button"
+          class="btn btn-success btn-block"
+          (click)="importInputs()"
+        >
+          Import Values
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

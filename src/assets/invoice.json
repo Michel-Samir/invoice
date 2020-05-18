@@ -1,0 +1,29 @@
+{
+  "invoice": {
+    "CompanyName": "a",
+    "CompanyAddress": "b",
+    "StateZipCode": 1,
+    "Date": "2020-05-17",
+    "ReceiptNO": 2,
+    "BillContactName": "c",
+    "BillClientCompanyName": "d",
+    "BillAddress": "e",
+    "BillPhone": 3,
+    "BillEmail": "g@g",
+    "ShipName": "h",
+    "ShipClientCompanyName": "i",
+    "ShipAddress": "j",
+    "ShipPhone": 4,
+    "Discount": 10,
+    "TaxRate": 0,
+    "Shipping": 0,
+    "Remarks": "",
+    "Items": [
+      {
+        "Description": "k",
+        "Quantity": 5,
+        "UnitPrice": 20
+      }
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+h1 {
+    color: silver;
+    margin-bottom: 30px;
+}
+
+h3, h5 {
+    color: silver;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+tr {
+    text-align: center;
+}
+
+label {
+    justify-content: end;
+    padding: 0;
+}
+
+@media (max-width: 576px) { 
+    .table {
+        width: 500px;
+    }
+}
+
+th {
+    font-weight: normal;
+}
+
+.thead-primary {
+    color: #fff;
+    background-color: cornflowerblue;
+}
+
+.table tbody tr:nth-child(2n+2){
+    background-color: rgb(178, 199, 236);
+}
+
+.table tbody tr:nth-child(2n+2) input{
+    background-color: rgb(178, 199, 236);
+}
+
+table input {
+    border: none;
+}
+
+
+.input-bottom-border input[disabled]{
+    border: none;
+    background-color: #fff;
+    text-align: center;
+}
+
+.form-inline {
+    margin-bottom: 5px;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+span {
+    color: red;
+}
+
+span::before {
+    content: '\2022  '
+}
+
+table span {
+    color: red;
+}
+
+table span::before {
+    content: none
+}
